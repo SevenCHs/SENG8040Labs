@@ -1,0 +1,194 @@
+using NUnit.Framework;
+using AwesomeCalculator;
+
+namespace NUnitTest
+{
+    public class AwesomeCalculatorTest
+    {
+        [TestFixture]
+        class CalcTests
+        {
+            [Test]
+            public void Addition_PositiveAndNegative()
+            {
+                double FirstNumber = -56.65;
+                double SecondNumber = 852.25;
+
+                double expectedResult = FirstNumber + SecondNumber;
+
+                Calc testAddition = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testAddition.GetAddition();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Addition_LargeNumber()
+            {
+                double FirstNumber = 90000000000.22;
+                double SecondNumber = -77.55;
+
+                double expectedResult = FirstNumber + SecondNumber;
+
+                Calc testAddition = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testAddition.GetAddition();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Addition_AllNegative()
+            {
+                double FirstNumber = -2485.14;
+                double SecondNumber = -33.65;
+
+                double expectedResult = FirstNumber + SecondNumber;
+
+                Calc testAddition = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testAddition.GetAddition();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Subtraction_PositiveAndNegative()
+            {
+                double FirstNumber = 98.56;
+                double SecondNumber = -2.25;
+
+                double expectedResult = FirstNumber - SecondNumber;
+
+                Calc testAddition = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testAddition.GetSubtraction();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Subtraction_LargeNumber()
+            {
+                double FirstNumber = 900000005.98;
+                double SecondNumber = -77.99;
+
+                double expectedResult = FirstNumber - SecondNumber;
+
+                Calc testAddition = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testAddition.GetSubtraction();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Subtraction_AllNegative()
+            {
+                double FirstNumber = -5640.35;
+                double SecondNumber = -96.51;
+
+                double expectedResult = FirstNumber - SecondNumber;
+
+                Calc testAddition = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testAddition.GetSubtraction();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Multiplication_PositiveAndNegative()
+            {
+                double FirstNumber = 1.52;
+                double SecondNumber = -885;
+
+                double expectedResult = FirstNumber * SecondNumber;
+
+                Calc testAddition = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testAddition.GetMultiplication();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Multiplication_LargeNumber()
+            {
+                double FirstNumber = 900000000.22;
+                double SecondNumber = 77777777.11;
+
+                double expectedResult = FirstNumber * SecondNumber;
+
+                Calc testAddition = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testAddition.GetMultiplication();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Multiplication_MultiplicationWithZero_ReturnZero()
+            {
+                double FirstNumber = 9005421.22;
+                double SecondNumber = 0;
+
+                double expectedResult = 0;
+
+                Calc testAddition = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testAddition.GetMultiplication();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Division_PositiveAndNegative()
+            {
+                double FirstNumber = 5545132.55;
+                double SecondNumber = -8465123;
+
+                //round problem
+                double expectedResult = -0.66;
+
+                Calc testDivision = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testDivision.GetDivision();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Division_LargeNumber()
+            {
+                double FirstNumber = 55555555.55;
+                double SecondNumber = 1111.1;
+
+                //round problem
+                double expectedResult = 50000.5;
+
+                Calc testDivision = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testDivision.GetDivision();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+
+            [Test]
+            public void Division_DevideByZero()
+            {
+                double FirstNumber = 5.55;
+                double SecondNumber = 0;
+
+                double expectedResult = FirstNumber / SecondNumber;
+
+                Calc testDivision = new Calc(FirstNumber, SecondNumber);
+
+                double testResult = testDivision.GetDivision();
+
+                Assert.AreEqual(expectedResult, testResult);
+            }
+        }
+    }
+}
